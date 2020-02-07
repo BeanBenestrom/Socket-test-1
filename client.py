@@ -16,7 +16,7 @@ time.sleep(3)
 sys.exit()
 #--------------------------------------------
 port = 7654
-
+#
 i = 0
 queue = False
 maxTries = 5

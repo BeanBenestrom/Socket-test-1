@@ -14,7 +14,7 @@ white = color.Fore.WHITE
 ip = socket.gethostname()
 port = 7654
 maxUsers = 3
-
+#
 Users = []
 user_amount = 0
 
