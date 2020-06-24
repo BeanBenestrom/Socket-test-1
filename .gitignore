@@ -1,0 +1,5 @@
+.vscode
+venv
+test.py
+.gitignore
+Old EXES
