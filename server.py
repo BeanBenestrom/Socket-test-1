@@ -113,7 +113,6 @@ def messaging(conn, address, colorIndex):
             sendMessage(user, address, msg.decode(), colorIndex)
 
 
-
 def chooseColor():
     if len(colors) == 0:
         userColor = random.choice(colorsDef)
