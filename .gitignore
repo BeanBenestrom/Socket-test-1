@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 .vscode
 venv
 test.py
 .gitignore
+=======
+.vscode
+venv
+test.py
+.gitignore
+>>>>>>> ac7c045cc320ae069686fcd7e5a2afb93acc2b4e
 Old EXES
