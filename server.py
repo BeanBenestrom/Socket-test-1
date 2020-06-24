@@ -7,13 +7,14 @@ import random
 
 color.init()
 
-green = color.Fore.GREEN
-yellow = color.Fore.YELLOW
+greenL = color.Fore.LIGHTGREEN_EX
+yellowL = color.Fore.LIGHTYELLOW_EX
+redL = color.Fore.LIGHTRED_EX
 red = color.Fore.RED
 white = color.Fore.WHITE
 
-colorsDef = ["white", "green", "red", "cyan", "blue", "magenta"]
-colors = ["white", "green", "red", "cyan", "blue", "magenta"]
+colorsDef = ["white", "green", "greenL", "red", "redL", "cyan", "blue", "blueL", "magenta", "magentaL"]
+colors = ["white", "green", "greenL", "red", "redL", "cyan", "blue", "blueL", "magenta", "magentaL"]
 
 ip = None
 port = None
@@ -60,7 +61,7 @@ def create_server():
         i += 1
         if i >= maxTries:
             i = 0
-            print(red + f"\nERROR: Server could not be created after {maxTries} tries!" + white)
+            print(redL + f"\nERROR: Server could not be created after {maxTries} tries!" + white)
             print("Possibly the IP or the port is wrong.\n")
             addServer()
             create_server()
@@ -75,12 +76,12 @@ def remove_user(conn, address):
     for user in Users:
         if user == [conn, address]:
             Users.remove(user)
-            print(yellow + f"\n{address} removed!" + white)
+            print(yellowL + f"\n{address} removed!" + white)
             conn.close()
             user_amount -= 1
             full = False
             for user in Users:
-                sendMessage(user, ["SERVER:", ""], f"User {address[0]} left the chat!", "yellow")
+                sendMessage(user, ["SERVER:", ""], f"User {address[0]} left the chat!", "yellowL")
 
 
 def sendMessage(user, address, msg, colorIndex):
@@ -133,18 +134,18 @@ while True:
 
     if full: 
         try:
-            d = pickle.dumps(["SERVER: Server is full!    Try again later.", "yellow"])
+            d = pickle.dumps(["SERVER: Server is full!    Try again later.", "yellowL"])
             conn.send(d)
             conn.close()
         except socket.error:
             pass
     else:
         for user in Users:
-            sendMessage(user, ["SERVER:", ""], f"User {address[0]} joined the chat!", "yellow")
+            sendMessage(user, ["SERVER:", ""], f"User {address[0]} joined the chat!", "yellowL")
         Users.append([conn, address])
         userColor = chooseColor() 
-        print(green + f"User {address} connected!" + white)
-        d = pickle.dumps(["------Welcome to the chat!------", "green"])
+        print(greenL + f"User {address} connected!" + white)
+        d = pickle.dumps(["------Welcome to the chat!------", "greenL"])
         conn.send(d)
         messageThread = threading.Thread(target=messaging, args=[conn, address, userColor])
         messageThread.start()

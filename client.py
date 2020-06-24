@@ -11,16 +11,21 @@ color.init()
 green = color.Fore.GREEN
 white = color.Fore.WHITE
 red = color.Fore.RED
+redL = color.Fore.LIGHTRED_EX
 yellow = color.Fore.LIGHTYELLOW_EX
 
 colors = {
     "white" : color.Fore.WHITE,
     "green" : color.Fore.GREEN,
-    "yellow" : color.Fore.YELLOW,
+    "greenL" : color.Fore.LIGHTGREEN_EX,
+    "yellowL" : color.Fore.LIGHTYELLOW_EX,
     "red" : color.Fore.RED,
+    "redL" : color.Fore.LIGHTRED_EX,
     "cyan" : color.Fore.CYAN,
     "blue" : color.Fore.BLUE,
+    "blueL" : color.Fore.LIGHTBLUE_EX,
     "magenta" : color.Fore.MAGENTA,
+    "magentaL" : color.Fore.LIGHTMAGENTA_EX,
 }
 #--------------------------------------------
 ip = None # Add ip here (don't)? >=|
@@ -60,7 +65,7 @@ def connect_to_server():
     except socket.error:
         i += 1
         if i >= maxTries:
-            print(red + f"\nERROR: Could not connect to server after {maxTries} tries!" + white)
+            print(redL + f"\nERROR: Could not connect to server after {maxTries} tries!" + white)
             print("Possibly the IP or the port is wrong.\n" + white)
             addServer()
             connect_to_server()
